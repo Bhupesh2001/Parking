@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Bhupesh</string>
+    <string name="preference_file_name">Preferences</string>
+</resources>
