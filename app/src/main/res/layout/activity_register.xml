@@ -20,28 +20,7 @@
         android:textStyle="bold"
         />
 
-    <EditText
-        android:id="@+id/etName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint=" Name"
-        android:maxLines="1"
-        android:inputType="text"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="50dp"
-        android:layout_below="@+id/txtInstruction"
-        />
 
-    <EditText
-        android:id="@+id/etEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint=" Email"
-        android:inputType="textEmailAddress"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/etName"
-        />
 
     <EditText
         android:id="@+id/etMobile"
@@ -49,10 +28,31 @@
         android:layout_height="wrap_content"
         android:hint=" Mobile"
         android:inputType="phone"
+        android:maxLines="1"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="20dp"
         android:maxLength="10"
-        android:layout_below="@+id/etEmail"/>
+        android:layout_below="@+id/txtInstruction"/>
+
+    <EditText
+        android:id="@+id/etState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" State"
+        android:inputType="text"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/etMobile"/>
+
+    <EditText
+        android:id="@+id/etCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" City"
+        android:inputType="text"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/etState"/>
 
     <EditText
         android:id="@+id/etAddress"
@@ -62,33 +62,23 @@
         android:inputType="text"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/etMobile"/>
+        android:layout_below="@+id/etCity"/>
 
     <EditText
-        android:id="@+id/etRegisterPassword"
+        android:id="@+id/etFloors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint=" Password"
-        android:inputType="textPassword"
+        android:hint=" Floors"
+        android:inputType="text"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="20dp"
         android:layout_below="@+id/etAddress"/>
-
-    <EditText
-        android:id="@+id/etConfirmPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint=" Confirm Password"
-        android:inputType="textPassword"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@+id/etRegisterPassword"/>
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etConfirmPassword"
+        android:layout_below="@id/etFloors"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
         android:paddingHorizontal="30dp"

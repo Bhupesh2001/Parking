@@ -32,11 +32,11 @@ class LoginActivity : AppCompatActivity() {
             super.onPause()
             finish()
         }
-        etPhone = findViewById(R.id.etPhone)
-        etPassword = findViewById(R.id.etPassword)
-        txtRegister = findViewById(R.id.txtRegister)
-        txtLogin = findViewById(R.id.txtLogin)
-        txtFogotPassword = findViewById(R.id.txtFogotPassword)
+//        etPhone = findViewById(R.id.etPhone)
+//        etPassword = findViewById(R.id.etPassword)
+//        txtRegister = findViewById(R.id.txtRegister)
+//        txtLogin = findViewById(R.id.txtLogin)
+//        txtFogotPassword = findViewById(R.id.txtFogotPassword)
 
         txtRegister.setOnClickListener {
             val intent = Intent(this@LoginActivity,RegisterActivity::class.java)
