@@ -6,16 +6,10 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {
-    lateinit var etName:EditText
-    lateinit var etEmail:EditText
-    lateinit var etMobile:EditText
-    lateinit var etAddress:EditText
-    lateinit var etRegisterPassword:EditText
-    lateinit var etConfirmPassword:EditText
-    lateinit var btnLogin:Button
-    lateinit var sharedPreferences:SharedPreferences
+
     lateinit var atv:AutoCompleteTextView
     val states = arrayListOf("Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka",
                              "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Telangana",
