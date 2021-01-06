@@ -20,16 +20,16 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        txtMessage = findViewById(R.id.txtMessage)
-//        imgLogoutFromHome = findViewById(R.id.imgLogoutFromHome)
-        txtLogoutFromHome = findViewById(R.id.txtLogoutFromHome)
+//        txtMessage = findViewById(R.id.txtMessage)
+////        imgLogoutFromHome = findViewById(R.id.imgLogoutFromHome)
+//        txtLogoutFromHome = findViewById(R.id.txtLogoutFromHome)
 
-        sharedPreferences = getSharedPreferences("Preferences",Context.MODE_PRIVATE)
-        val name = sharedPreferences.getString("etName","c")
-        txtMessage.setText("$name")
-
-//        imgLogoutFromHome.setOnClickListener{ logout() }
-        txtLogoutFromHome.setOnClickListener { logout() }
+//        sharedPreferences = getSharedPreferences("Preferences",Context.MODE_PRIVATE)
+//        val name = sharedPreferences.getString("etName","c")
+//        txtMessage.setText("$name")
+//
+////        imgLogoutFromHome.setOnClickListener{ logout() }
+//        txtLogoutFromHome.setOnClickListener { logout() }
     }
 
     fun logout() {
