@@ -12,11 +12,11 @@
             android:title="Profile"
             android:icon="@drawable/ic_profile"/>
         <item
-            android:id="@+id/favorite"
-            android:title="Favorites"
-            android:icon="@drawable/ic_favorite"/>
+            android:id="@+id/Details"
+            android:title="Details"
+            android:icon="@drawable/ic_details"/>
         <item
-            android:id="@+id/logout"
+            android:id="@+id/Logout"
             android:title="Logout"
             android:icon="@drawable/ic_logout"/>
     </group>

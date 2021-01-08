@@ -1,9 +1,12 @@
-package com.example.assignment.activity
+package com.example.assignment
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
-import com.example.assignment.R
+import com.google.firebase.auth.FirebaseAuth
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -17,7 +20,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
         atv = findViewById(R.id.etState)
-        atv.setAdapter(ArrayAdapter<String>(this@RegisterActivity, R.layout.support_simple_spinner_dropdown_item,states))
+        atv.setAdapter(ArrayAdapter<String>(this@RegisterActivity,R.layout.support_simple_spinner_dropdown_item,states))
     }
 }
 

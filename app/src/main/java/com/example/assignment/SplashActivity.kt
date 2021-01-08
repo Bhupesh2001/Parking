@@ -1,10 +1,9 @@
-package com.example.assignment.activity
+package com.example.assignment
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.example.assignment.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +11,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Handler().postDelayed({
-            val startAct = Intent(this@SplashActivity, LoginActivity::class.java)
+            val startAct = Intent(this@SplashActivity,LoginActivity::class.java)
             startActivity(startAct)
             super.onPause()
             finish()
