@@ -1,24 +1,22 @@
-package com.example.assignment
+package com.example.assignment.activity
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.animation.Animation
 import android.widget.*
+import com.example.assignment.R
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GithubAuthProvider
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
-import kotlin.coroutines.CoroutineContext
 
 const val REQUEST_CODE_SIGN_IN = 0
 class LoginActivity : AppCompatActivity() {
@@ -82,13 +80,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun openRegister(){
-        val intent = Intent(this@LoginActivity,RegisterActivity::class.java)
+        val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
         startActivity(intent)
         super.onPause()
         finish()
     }
     fun openHome(){
-        val intent = Intent(this@LoginActivity,HomeActivity::class.java)
+        val intent = Intent(this@LoginActivity, MainActivity::class.java)
         startActivity(intent)
         super.onPause()
         finish()
