@@ -1,16 +1,13 @@
-package com.example.assignment.activtiy
+package com.example.assignment.activity
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.FrameLayout
-import android.widget.ImageButton
-import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
@@ -20,6 +17,8 @@ import com.example.assignment.fragments.DashboardFragment
 import com.example.assignment.fragments.FavoriteFragment
 import com.example.assignment.fragments.ProfileFragment
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class HomeActivity : AppCompatActivity() {
     lateinit var DrawerLayout: DrawerLayout
@@ -27,6 +26,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var toolbar: Toolbar
     lateinit var Frame: FrameLayout
     lateinit var navigationView: NavigationView
+    lateinit var sharedPreferences: SharedPreferences
 
     var previousMenuItem:MenuItem? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +38,7 @@ class HomeActivity : AppCompatActivity() {
         Frame = findViewById(R.id.frame)
         CoordinatorLayout = findViewById(R.id.coordinatorLayout)
         navigationView = findViewById(R.id.navigationView)
+        sharedPreferences = getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
         setUpToolbar()
         openDashboard()
 
@@ -72,6 +73,13 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.logout ->{
 //                    todo
+                    Firebase.auth.signOut()
+                    DrawerLayout.closeDrawers()
+                    sharedPreferences.edit().putBoolean("isLoggedIn",false).apply()
+                    val intent = Intent(this@HomeActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                    super.onPause()
+                    finish()
                 }
 
             }
@@ -107,4 +115,11 @@ class HomeActivity : AppCompatActivity() {
             else -> super.onBackPressed()
         }
     }
+    private fun signOut() {
+        // [START auth_sign_out]
+        Firebase.auth.signOut()
+
+        // [END auth_sign_out]
+    }
+
 }

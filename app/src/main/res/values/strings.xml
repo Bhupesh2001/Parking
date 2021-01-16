@@ -4,6 +4,4 @@
     <string name="webclient_id">233072793748-dks0dls5eruvieuntsgkubgquhnnjrgb.apps.googleusercontent.com</string>
     <string name="close_drawer">Close Drawer</string>
     <string name="open_drawer">open Drawer</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

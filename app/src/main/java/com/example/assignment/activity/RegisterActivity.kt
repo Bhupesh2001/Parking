@@ -1,4 +1,4 @@
-package com.example.assignment.activtiy
+package com.example.assignment.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.widget.*
 import com.example.assignment.R
 
 class RegisterActivity : AppCompatActivity() {
+
 
     lateinit var atv:AutoCompleteTextView
     val states = arrayListOf("Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu and Kashmir", "Jharkhand", "Karnataka",

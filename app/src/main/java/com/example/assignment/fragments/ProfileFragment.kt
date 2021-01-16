@@ -3,9 +3,12 @@ package com.example.assignment.fragments
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.TextureView
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.assignment.R
+import com.google.firebase.auth.FirebaseAuth
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,6 +21,11 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ProfileFragment : Fragment() {
+    lateinit var txtUserName:TextView
+    lateinit var txtUserPhone:TextView
+    lateinit var txtUserEmail:TextView
+    lateinit var mAuth: FirebaseAuth
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,7 +43,20 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        val view = inflater.inflate(R.layout.fragment_profile, container, false)
+
+        txtUserName = view.findViewById(R.id.txtUserName)
+        txtUserEmail = view.findViewById(R.id.txtUserEmail)
+        txtUserPhone = view.findViewById(R.id.txtUserPhone)
+
+        mAuth = FirebaseAuth.getInstance()
+        val currentUser = mAuth.currentUser
+
+        txtUserName.text = currentUser?.displayName
+        txtUserEmail.text = currentUser?.email
+        txtUserPhone.text = currentUser?.uid
+
+        return view
     }
 
     companion object {

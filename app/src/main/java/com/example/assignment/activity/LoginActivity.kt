@@ -1,4 +1,4 @@
-package com.example.assignment.activtiy
+package com.example.assignment.activity
 
 import android.content.Context
 import android.content.Intent
@@ -85,6 +85,7 @@ class LoginActivity : AppCompatActivity() {
         super.onPause()
         finish()
     }
+
     fun openHome(){
         val intent = Intent(this@LoginActivity, HomeActivity::class.java)
         startActivity(intent)
