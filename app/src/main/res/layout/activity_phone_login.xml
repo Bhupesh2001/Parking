@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.PhoneLoginActivity">
+    tools:context=".activity.PhoneLoginActivity"
+    android:background="@drawable/background">
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login kar jaldi se"
+        android:text="Login / Sign-Up"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,35 +27,41 @@
         android:layout_height="39dp"
         android:layout_marginTop="60dp"
         android:ems="10"
-        android:hint="Phone Number bata apna"
+        android:hint="Phone Number"
         android:inputType="phone"
         android:maxLength="10"
         android:maxLines="1"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        />
 
     <Button
         android:id="@+id/btnVeri"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:text="OTP Bhej Na !!"
+        android:text="Send OTP"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="@+id/phnNoTxt"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/phnNoTxt"
-        app:layout_constraintTop_toBottomOf="@+id/phnNoTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/phnNoTxt"
+        android:background=""
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/txtOtp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="92dp"
         android:ems="10"
-        android:hint="OTP Bata Chup Chap"
+        android:hint="OTP"
         android:inputType="textPersonName"
+        android:maxLength="6"
+        android:maxLines="1"
         app:layout_constraintEnd_toEndOf="@+id/btnVeri"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="@+id/btnVeri"
         app:layout_constraintTop_toBottomOf="@+id/btnVeri" />
 
@@ -63,19 +70,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:text="Check Karu Kya ??"
+        android:text="Check OTP"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/txtOtp"
         app:layout_constraintStart_toStartOf="@+id/txtOtp"
-        app:layout_constraintTop_toBottomOf="@+id/txtOtp" />
+        app:layout_constraintTop_toBottomOf="@+id/txtOtp"
+        android:background=""/>
 
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/txtOtp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/btnVeri"
+        app:layout_constraintVertical_bias="0.569" />
 </androidx.constraintlayout.widget.ConstraintLayout>

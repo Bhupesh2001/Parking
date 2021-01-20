@@ -38,17 +38,29 @@ class PhoneLoginActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         btnVerify.setOnClickListener {
+
             val number = phnNoTxt.text.toString()
-            sendVerfication(number)
-            progressBar.visibility = View.VISIBLE
+            if(number.length==10) {
+                sendVerification(number)
+                progressBar.visibility = View.VISIBLE
+            }
+            else{
+                phnNoTxt.error = "Not a valid number"
+                // Toast.makeText(this, "Enter a valid number", Toast.LENGTH_SHORT).show()
+            }
         }
+
         btnCheck.setOnClickListener {
             val code = txtotp.text.toString()
-            verifyVerificationCode(code)
+            when {
+                phnNoTxt.text.toString().length!=10 -> phnNoTxt.error = "Enter a valid Phone Number"
+                code.length==6 -> verifyVerificationCode(code)
+                else -> txtotp.error = "Enter a valid OTP"
+            }
         }
     }
 
-    private fun sendVerfication(number: String?) {
+    private fun sendVerification(number: String?) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
                 "+91" + number,
                 60,
