@@ -11,6 +11,7 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/abril_fatface"
         android:text="Login / Sign-Up"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -27,55 +28,60 @@
         android:layout_height="39dp"
         android:layout_marginTop="60dp"
         android:ems="10"
+        android:fontFamily="@font/abril_fatface"
+        android:gravity="center"
         android:hint="Phone Number"
         android:inputType="phone"
         android:maxLength="10"
         android:maxLines="1"
         app:layout_constraintEnd_toEndOf="@+id/textView9"
         app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-    <Button
-        android:id="@+id/btnVeri"
+    <TextView
+        android:id="@+id/btnSendOtp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:fontFamily="@font/abril_fatface"
         android:text="Send OTP"
         android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/phnNoTxt"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/phnNoTxt"
-        app:layout_constraintTop_toBottomOf="@+id/phnNoTxt"
-        android:background=""
-        android:textStyle="bold"/>
+        app:layout_constraintTop_toBottomOf="@+id/phnNoTxt" />
 
     <EditText
         android:id="@+id/txtOtp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="267dp"
+        android:layout_height="39dp"
         android:layout_marginTop="92dp"
         android:ems="10"
+        android:fontFamily="@font/abril_fatface"
+        android:gravity="center"
         android:hint="OTP"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:maxLength="6"
         android:maxLines="1"
-        app:layout_constraintEnd_toEndOf="@+id/btnVeri"
+        app:layout_constraintEnd_toEndOf="@+id/phnNoTxt"
         app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/btnVeri"
-        app:layout_constraintTop_toBottomOf="@+id/btnVeri" />
+        app:layout_constraintStart_toStartOf="@+id/phnNoTxt"
+        app:layout_constraintTop_toBottomOf="@+id/btnSendOtp" />
 
-    <Button
-        android:id="@+id/btnCheck"
+    <TextView
+        android:id="@+id/btnCheckOtp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
+        android:fontFamily="@font/abril_fatface"
         android:text="Check OTP"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/txtOtp"
         app:layout_constraintStart_toStartOf="@+id/txtOtp"
-        app:layout_constraintTop_toBottomOf="@+id/txtOtp"
-        android:background=""/>
+        app:layout_constraintTop_toBottomOf="@+id/txtOtp" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -86,6 +92,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnVeri"
+        app:layout_constraintTop_toBottomOf="@+id/btnSendOtp"
         app:layout_constraintVertical_bias="0.569" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,14 +1,13 @@
 package com.example.assignment.activity
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import com.example.assignment.R
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -19,29 +18,40 @@ import java.util.concurrent.TimeUnit
 class PhoneLoginActivity : AppCompatActivity() {
     lateinit var txtotp: EditText
     lateinit var phnNoTxt: EditText
-    lateinit var btnVerify: Button
-    lateinit var btnCheck: Button
+    lateinit var btnSendOtp: TextView
+    lateinit var btnCheckOtp: TextView
     lateinit var mAuth: FirebaseAuth
     lateinit var progressBar: ProgressBar
     lateinit var mVerificationId: String
+    lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_phone_login)
+
+        sharedPreferences = getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
+        if(sharedPreferences.getBoolean("isLoggedIn",false))
+        {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            super.onPause()
+            finish()
+        }
         progressBar = findViewById(R.id.progressBar)
         progressBar.visibility = View.INVISIBLE
 
-        btnVerify = findViewById(R.id.btnVeri)
-        btnCheck = findViewById(R.id.btnCheck)
+        btnSendOtp = findViewById(R.id.btnSendOtp)
+        btnCheckOtp = findViewById(R.id.btnCheckOtp)
         phnNoTxt = findViewById(R.id.phnNoTxt)
         txtotp = findViewById(R.id.txtOtp)
         mAuth = FirebaseAuth.getInstance()
+        var otpSent = false
 
-        btnVerify.setOnClickListener {
-
+        btnSendOtp.setOnClickListener {
             val number = phnNoTxt.text.toString()
             if(number.length==10) {
                 sendVerification(number)
+                otpSent = true
                 progressBar.visibility = View.VISIBLE
             }
             else{
@@ -50,13 +60,17 @@ class PhoneLoginActivity : AppCompatActivity() {
             }
         }
 
-        btnCheck.setOnClickListener {
-            val code = txtotp.text.toString()
-            when {
-                phnNoTxt.text.toString().length!=10 -> phnNoTxt.error = "Enter a valid Phone Number"
-                code.length==6 -> verifyVerificationCode(code)
-                else -> txtotp.error = "Enter a valid OTP"
+        btnCheckOtp.setOnClickListener {
+            if (otpSent) {
+                val code = txtotp.text.toString()
+                when {
+                    phnNoTxt.text.toString().length != 10 -> phnNoTxt.error = "Enter a valid Phone Number"
+                    code.length == 6 -> verifyVerificationCode(code)
+                    else -> txtotp.error = "Enter a valid OTP"
+                }
             }
+            else
+                Toast.makeText(this, "Request an OTP first", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -97,6 +111,7 @@ class PhoneLoginActivity : AppCompatActivity() {
         mAuth.signInWithCredential(credentials).addOnCompleteListener(this@PhoneLoginActivity) { p0 ->
             if (p0.isSuccessful) {
                 Toast.makeText(this@PhoneLoginActivity, "Welcome", Toast.LENGTH_SHORT).show()
+                sharedPreferences.edit().putBoolean("isLoggedIn",true).apply()
                 startActivity(Intent(this@PhoneLoginActivity, HomeActivity::class.java))
                 finish()
             } else {

@@ -76,7 +76,7 @@ class HomeActivity : AppCompatActivity() {
                     Firebase.auth.signOut()
                     DrawerLayout.closeDrawers()
                     sharedPreferences.edit().putBoolean("isLoggedIn",false).apply()
-                    val intent = Intent(this@HomeActivity, LoginActivity::class.java)
+                    val intent = Intent(this@HomeActivity, PhoneLoginActivity::class.java)
                     startActivity(intent)
                     super.onPause()
                     finish()
