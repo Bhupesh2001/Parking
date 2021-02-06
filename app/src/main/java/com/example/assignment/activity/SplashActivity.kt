@@ -12,7 +12,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         Handler().postDelayed({
-            val startAct = Intent(this@SplashActivity, LoginActivity::class.java)
+            val startAct = Intent(this@SplashActivity, PhoneLoginActivity::class.java)
             startActivity(startAct)
             super.onPause()
             finish()

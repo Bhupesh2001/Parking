@@ -116,10 +116,7 @@ class HomeActivity : AppCompatActivity() {
         }
     }
     private fun signOut() {
-        // [START auth_sign_out]
         Firebase.auth.signOut()
-
-        // [END auth_sign_out]
     }
 
 }
