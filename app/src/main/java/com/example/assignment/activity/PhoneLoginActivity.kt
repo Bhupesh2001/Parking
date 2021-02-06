@@ -5,10 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.*
 import com.example.assignment.R
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -19,8 +16,8 @@ import java.util.concurrent.TimeUnit
 class PhoneLoginActivity : AppCompatActivity() {
     lateinit var txtotp: EditText
     lateinit var phnNoTxt: EditText
-    lateinit var btnVerify: Button
-    lateinit var btnCheck: Button
+    lateinit var btnVerify: TextView
+    lateinit var btnCheck: TextView
     lateinit var mAuth: FirebaseAuth
     lateinit var progressBar: ProgressBar
     lateinit var mVerificationId: String
